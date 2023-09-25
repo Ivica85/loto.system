@@ -58,7 +58,11 @@
         <h1>My cards</h1>
 
         @foreach(Auth::user()->cards as $creditCard)
-            <p>{{$creditCard->card_number}} - {{$creditCard->cvv}} - {{$creditCard->expiry}}</p>
+            <div class="d-flex align-items-center justify-content-evenly">
+                <p>{{$creditCard->card_number}} - {{$creditCard->cvv}} - {{$creditCard->expiry}}</p>
+                <a class="btn btn-danger" href="{{route('cards_delete',['card'=>$creditCard->id])}}">DELETE</a>
+            </div>
+
         @endforeach
 
         <div>

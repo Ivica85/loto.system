@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function(){
 
     Route::controller(\App\Http\Controllers\CreditCardsController::class)->prefix('/credit-cards')->group(function(){
         Route::post('/save','save')->name("cards.save");
+        Route::get('/delete/{card}','delete')->name('cards_delete');
     });
 
 
