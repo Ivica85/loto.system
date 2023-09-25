@@ -13,13 +13,15 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('card_id')
-                ->references('id')
-                ->on('credit_cards')
-                ->onDelete('cascade');
+            $table->unsignedBigInteger('card_id');
             $table->integer('amount');
             $table->string('status',20);
             $table->timestamps();
+
+            $table->foreign('card_id')
+                ->references('id')
+                ->on('credit_cards')
+                ->onDelete('cascade');
 
 
         });

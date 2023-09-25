@@ -15,10 +15,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/','pages.home');
 
+
+Route::middleware('auth')->group(function(){
+
+    Route::controller(\App\Http\Controllers\ProfileController::class)->prefix('/profile')->group(function(){
+        Route::view('/','pages.profile');
+        Route::post('/save','save')->name("profile.save");
+    });
+
+
+
+});
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
