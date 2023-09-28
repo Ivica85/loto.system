@@ -15,11 +15,12 @@
 
         @endif
 
-        <div>
-            <p>Credits: {{auth()->user()->credits ?? 0}}</p>
-            <a class ="btn btn-outline-primary"href="{{route('profile.add_credits')}}">Add credits</a>
-        </div>
-
+        @if(auth()->user()->cards()->count() > 0 )
+            <div class="mb-2">
+                <p>Credits: {{auth()->user()->credits ?? 0}}</p>
+                <a class ="btn btn-outline-primary"href="{{route('profile.add_credits')}}">Add credits</a>
+            </div>
+        @endif
 
         <h1>My account</h1>
         <div>
