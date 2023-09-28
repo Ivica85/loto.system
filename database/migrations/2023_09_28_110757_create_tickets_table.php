@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('numbers',10);
+            $table->string('numbers',1280);
             $table->integer('price');
             $table->timestamps();
 

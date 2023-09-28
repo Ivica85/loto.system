@@ -18,6 +18,8 @@ Route::view('/','pages.home');
 
 Route::middleware('auth')->group(function(){
 
+    Route::view('/lotto','pages.lotto')->name('lotto.index');
+
     Route::controller(\App\Http\Controllers\ProfileController::class)->prefix('/profile')->group(function(){
         Route::view('/','pages.profile');
         Route::view('/add-credits','pages.add_credits')->name('profile.add_credits');
@@ -36,6 +38,10 @@ Route::middleware('auth')->group(function(){
     });
 
 
+
+    Route::controller(App\Http\Controllers\TicketsController::class)->prefix('lotto')->group(function(){
+        Route::post("/buy",'buy')->name('lotto.buy');
+    });
 
 });
 
