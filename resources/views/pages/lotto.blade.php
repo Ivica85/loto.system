@@ -16,7 +16,7 @@
 
     <script>
         function getRandomNumbers() {
-            const AMOUNT = 7; //
+            const AMOUNT = 8; //
             const BOTTOMRANGE = 1;
             const TOPRANGE = 100;
 
