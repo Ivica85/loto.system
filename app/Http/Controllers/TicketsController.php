@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TicketPurchaseRequest;
 use App\Models\Tickets;
 use Illuminate\Http\Request;
 
 class TicketsController extends Controller
 {
 
-    public function buy(Request $request)
+    public function buy(TicketPurchaseRequest $request)
     {
         Tickets::create([
             'user_id' => auth()->user()->id,
