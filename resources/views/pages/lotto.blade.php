@@ -9,6 +9,8 @@
     <form id="rndNumbers" method="POST" action="{{route('lotto.buy')}}" class="container mb-5 mt-5">
         @csrf
         @include('partials.errors')
+        <p class="text-primary">{{Session::get('message')}}</p>
+
         <div class="d-flex text-center">
             @for($i = 0; $i < 7; $i++)
                 <input style="width:50px" class="rand_number" type="number" name="numbers[]" value="{{rand(0,100)}}">

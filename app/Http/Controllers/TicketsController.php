@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\TicketPurchaseRequest;
 use App\Models\Tickets;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TicketsController extends Controller
 {
@@ -17,7 +18,11 @@ class TicketsController extends Controller
             'price'   => env('TICKET_PRICE_CREDITS'),
         ]);
 
-        return redirect()->back();
+        $user =  Auth::user();
+        $user->credits -= env('TICKET_PRICE_CREDITS');
+        $user->save();
+
+        return redirect()->back()->with(['message'=>'You have successfully purchased a lotto ticket. '. 'The remaining credit: '.$user->credits]);
     }
 
 
