@@ -5,7 +5,6 @@ namespace App\Console\Commands;
 use App\Models\LottoGames;
 use App\Models\Tickets;
 use Illuminate\Console\Command;
-use PHPUnit\Framework\Attributes\Ticket;
 
 class StartLottoGame extends Command
 {

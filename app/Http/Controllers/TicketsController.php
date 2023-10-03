@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\TicketPurchaseRequest;
 use App\Models\Tickets;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class TicketsController extends Controller
