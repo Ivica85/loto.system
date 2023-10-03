@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,4 +15,12 @@ class Tickets extends Model
         'numbers',
         'price',
     ];
+
+    public static function getForPast7Days(): ?int
+    {
+        return self::whereDate(
+            'created_at','>',Carbon::now()->subDays(7)
+        )->get()->sum('price');
+    }
+
 }
