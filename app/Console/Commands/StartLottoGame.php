@@ -48,8 +48,8 @@ class StartLottoGame extends Command
             'award_fund' => Tickets::getForPast7Days(),
         ]);
 
-        $this->output->info('Numbers that were picked: '.implode(',',$lotoNumbers));
-        $this->output->info('The award winning fund was  $award and house kept $houseCut');
+        $this->output->info("Numbers that were picked: ".implode(',',$lotoNumbers));
+        $this->output->info("The award winning fund was $award and house kept $houseCut");
     }
 
 }
