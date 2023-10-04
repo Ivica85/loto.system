@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\LottoGames;
+use App\Models\Settings;
 use App\Models\Tickets;
 use Illuminate\Console\Command;
 
@@ -47,6 +48,11 @@ class StartLottoGame extends Command
             'numbers' => implode(',',$lotoNumbers),
             'award_fund' => Tickets::getForPast7Days(),
         ]);
+
+
+        $settingBank = Settings::where(['key'=>'bank'])->first();
+        $settingBank->value += $houseCut;
+        $settingBank->save();
 
         $this->output->info("Numbers that were picked: ".implode(',',$lotoNumbers));
         $this->output->info("The award winning fund was $award and house kept $houseCut");

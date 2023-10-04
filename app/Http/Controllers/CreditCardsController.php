@@ -15,7 +15,6 @@ class CreditCardsController extends Controller
         $creditCards = new CreditCards();
         $creditCards->card_number = $request->card_number;
         $creditCards->cvv = $request->cvv;
-        $creditCards->expiry = $request->get('expiry_month')."/".$request->get('expiry_year');
         $creditCards->user_id = Auth::id();
         $creditCards->expiry = $date;
         $creditCards->save();
