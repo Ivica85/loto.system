@@ -5,16 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class LottoGames extends Model
+class AwardLog extends Model
 {
     use HasFactory;
 
-    protected $table = 'lotto_games';
+    protected $table = 'award_log';
 
     protected $fillable = [
-      'numbers',
-      'award_fund',
-      'jackpot',
-        'total_awarded',
+        'user_id',
+        'game_id',
+        'award',
     ];
 }
