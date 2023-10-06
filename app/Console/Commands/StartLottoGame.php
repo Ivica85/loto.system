@@ -40,13 +40,13 @@ class StartLottoGame extends Command
             $lotoNumbers[] = $randomNumber;
         }
 
-        $award = Tickets::getForPast7Days();
+        $award = Tickets::getTotalPriceForPast7Days();
         $houseCut = $award * env('HOUSE_CUT');
         $award = $award - $houseCut;
 
         LottoGames::create([
             'numbers' => implode(',',$lotoNumbers),
-            'award_fund' => Tickets::getForPast7Days(),
+            'award_fund' => Tickets::getTotalPriceForPast7Days(),
         ]);
 
 
@@ -57,5 +57,7 @@ class StartLottoGame extends Command
         $this->output->info("Numbers that were picked: ".implode(',',$lotoNumbers));
         $this->output->info("The award winning fund was $award and house kept $houseCut");
     }
+
+
 
 }

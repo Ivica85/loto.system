@@ -17,7 +17,7 @@ Route::view('/','pages.home');
 
 
 Route::middleware('auth')->group(function(){
-
+    Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
     Route::view('/lotto','pages.lotto')->name('lotto.index');
 
     Route::controller(\App\Http\Controllers\ProfileController::class)->prefix('/profile')->group(function(){
